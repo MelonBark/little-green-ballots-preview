@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mock — Topic chart &amp; paid vote · Little Green Ballots</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="../">Little Green Ballots</a>
+    <nav>
+      <a href="../">Landing</a>
+      <span class="pill">Static mock — no charges</span>
+    </nav>
+  </header>
+
+  <main class="mock">
+    <section>
+      <h1>Topic chart <span class="pill">demo data</span></h1>
+      <p class="lede">Click a topic, then “cast” a mock paid vote. Totals update in this browser only.</p>
+      <div id="chart" class="chart" aria-live="polite"></div>
+    </section>
+
+    <section class="vote-panel" id="vote-panel" hidden>
+      <h2>Cast a paid vote <span class="pill">UI only</span></h2>
+      <p>Topic: <strong id="selected-topic"></strong></p>
+      <label>
+        Mock stake (USD)
+        <select id="stake">
+          <option value="1">$1</option>
+          <option value="3" selected>$3</option>
+          <option value="5">$5</option>
+        </select>
+      </label>
+      <button type="button" class="btn primary" id="cast">Cast mock vote</button>
+      <p class="fine" id="receipt"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="../#waitlist">Back to waitlist CTA</a>
+  </footer>
+  <script src="mock.js"></script>
+</body>
+</html>
