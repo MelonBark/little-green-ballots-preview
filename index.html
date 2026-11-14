@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Little Green Ballots — Paid votes that move the chart</title>
   <meta name="description" content="A platform for paid votes that influence topic charts and displays. Coming soon." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="/">Little Green Ballots</a>
+    <a class="logo" href="./index.html">Little Green Ballots</a>
     <nav>
       <a href="#how">How it works</a>
       <a href="#who">Who it’s for</a>
-      <a href="mock/">Live mock</a>
+      <a href="./mock/index.html">Live mock</a>
     </nav>
   </header>
 
@@ -27,7 +27,7 @@
       </p>
       <div class="cta-row">
         <a class="btn primary" href="#waitlist">Join the waitlist</a>
-        <a class="btn ghost" href="mock/">Try the static mock</a>
+        <a class="btn ghost" href="./mock/index.html">Try the static mock</a>
       </div>
       <p class="fine">No payments taken tonight — waitlist and mock only.</p>
     </section>
@@ -57,17 +57,16 @@
     </section>
 
     <section id="waitlist" class="waitlist">
-      <h2>Primary CTA — waitlist</h2>
-      <p>Tell us you’re interested. This stub does not enroll a payment processor or charge anyone.</p>
-      <form class="waitlist-form" action="mailto:household+littlegreenballots@marknoble.com" method="get" enctype="text/plain">
-        <label>
-          Email
-          <input type="email" name="subject" required placeholder="you@example.com" />
-        </label>
-        <input type="hidden" name="body" value="Please add me to the Little Green Ballots waitlist." />
-        <button type="submit" class="btn primary">Request invite</button>
-      </form>
-      <p class="fine">Opens your mail client — replace with a real form provider later. No spend in this PR.</p>
+      <h2>Join the waitlist</h2>
+      <p>Tell us you’re interested. This page does not enroll a payment processor or charge anyone.</p>
+      <p>
+        <a class="btn primary" id="waitlist-cta" href="#waitlist-note">Request invite</a>
+      </p>
+      <p class="fine waitlist-note" id="waitlist-note" hidden>Waitlist form coming soon.</p>
+      <noscript>
+        <p class="fine waitlist-note">Waitlist form coming soon.</p>
+      </noscript>
+      <p class="fine">No payment is taken.</p>
     </section>
   </main>
 
@@ -75,5 +74,7 @@
     <span>© Melon Bark · littlegreenballots.com</span>
     <a href="https://github.com/MelonBark/little-green-ballots">Source</a>
   </footer>
+  <!-- Waitlist URL lives in config.js as WAITLIST_FORM_URL. -->
+  <script src="./config.js"></script>
 </body>
 </html>
