@@ -15,7 +15,7 @@ python3 -m http.server 8080
 
 Opening `index.html` from disk (`file://`) works too. Links point at those files, not at folders. Folder links such as `mock/` only work when the server rewrites a directory to `index.html`. VS Code Live Preview and `file://` do not, so those links used to open a directory listing or an error instead of the mock.
 
-The same relative links work when the site is hosted in a subpath (for example `https://melonbark.github.io/little-green-ballots-preview/`).
+The same relative links work on the preview host [https://preview.littlegreenballots.com/](https://preview.littlegreenballots.com/).
 
 ## Waitlist form
 
@@ -29,13 +29,13 @@ Paste the Microsoft 365 Forms URL on that line. It must start with `https://form
 
 ## Preview site
 
-Production GitHub Pages is the `main` branch of this repo only, and `CNAME` stays `littlegreenballots.com`.
+Production GitHub Pages is the `main` branch of this repo only, and this repo’s `CNAME` stays `littlegreenballots.com`.
 
-The sprint is synced, without `CNAME`, to [little-green-ballots-preview](https://github.com/MelonBark/little-green-ballots-preview) `main`. That repo already has `.nojekyll` and Pages configured from `main` `/`, with no custom domain of its own. It is served at:
+The sprint is synced to [little-green-ballots-preview](https://github.com/MelonBark/little-green-ballots-preview) `main`. That repo keeps `.nojekyll` and its own `CNAME`, `preview.littlegreenballots.com`. It is served at:
 
-https://melonbark.com/little-green-ballots-preview/
+https://preview.littlegreenballots.com/
 
-[`.github/workflows/deploy-preview.yml`](.github/workflows/deploy-preview.yml) repeats that sync on pushes to `sprint/lgb-mvp-landing-mock` when the Actions secret `PREVIEW_DEPLOY_TOKEN` is set. The token is a fine-grained PAT with Contents read and write on the preview repo only. The workflow never copies `CNAME` and does not change the production Pages site.
+[`.github/workflows/deploy-preview.yml`](.github/workflows/deploy-preview.yml) repeats that sync on pushes to `sprint/lgb-mvp-landing-mock` when the Actions secret `PREVIEW_DEPLOY_TOKEN` is set. The token is a fine-grained PAT with Contents read and write on the preview repo only. The workflow writes `preview.littlegreenballots.com` into the preview repo and does not copy this repo’s production `CNAME`.
 
 Promoting the sprint to production is merging PR #3 into `main` after Mark approves. Do not merge before that.
 
